@@ -1,0 +1,35 @@
+Trying:
+    test_decode('-- .- .. -....- .--. -.-- - .... --- -. -....- ..--- ----- .---- ----.')
+Expecting:
+    'MAI-PYTHON-2019'
+ok
+Trying:
+    test_encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    test_encode('P' * 30) #doctest: +ELLIPSIS
+Expecting:
+    '.--. ... .--.'
+ok
+Trying:
+    test_encode('S   O   S') # doctest: +NORMALIZE_WHITESPACE
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    test_encode(30.1)
+Expecting:
+    Traceback (most recent call last):
+         ...
+    TypeError: 'float' object is not iterable
+ok
+1 items had no tests:
+    test
+2 items passed all tests:
+   1 tests in test.test_decode
+   4 tests in test.test_encode
+5 tests in 3 items.
+5 passed and 0 failed.
+Test passed.
