@@ -4,6 +4,7 @@ import datetime
 #1
 original_write = sys.stdout.write
 
+
 def my_write(string_text):
     if string_text == '\n':
         return original_write('\n')
@@ -36,3 +37,30 @@ def timed_output(func):
 def print_greeting(name):
     print(f'Hello, {name}!')
 print_greeting("Koshka")
+
+
+def redirect_output(filepath):
+    def outer_wrapper(func):
+        def inner_wrapper(*args, **kwargs):
+            temp = sys.stdout
+            output = open(filepath, 'w')
+            sys.stdout = output
+            func(*args, **kwargs)
+            output.close()
+            sys.stdout=temp
+            return
+        
+        return inner_wrapper
+    
+    return outer_wrapper
+    
+    
+@redirect_output('./function_output.txt')
+def calculate():
+    for power in range(1, 5):
+        for num in range(1, 20):
+            print(num ** power, end=' ')
+        print()
+   
+
+calculate()
