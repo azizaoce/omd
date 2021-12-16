@@ -59,3 +59,17 @@ class TfidfTransformer():
                 tmp.append(round(_elem*elem[i_elem],3))
             self.tfidf_matrix.append(tmp)
         return self.tfidf_matrix
+    
+   
+class TfidfVectorizer(CountVectorizer):
+    def __init__(self):
+        super().__init__()
+        self.tfidf_transformer = TfidfTransformer()
+        self.tfidf_matrix = []
+        self.matrix = []
+
+    def fit_transform(self, document):
+        self.matrix = super().fit_transform(document)
+        self.tfidf_matrix = self.tfidf_transformer.fit_transform(self.matrix)
+        return self.tfidf_matrix
+
