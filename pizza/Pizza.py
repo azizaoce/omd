@@ -95,7 +95,7 @@ def menu():
     print('Our menu today:')
     for pizza in available:
         print(f'{pizza.__name__}', end=': ')
-        print(*pizza().dict().values(), sep=' ❤ where size is ')
+        print(*pizza().dict().values(), sep=' ❤ where size is XL or ')
 
 
 if __name__ == '__main__':
