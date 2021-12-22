@@ -64,8 +64,8 @@ def train(pokemon: AnimeMon):
 
 if __name__ == '__main__':
     pika = Pokemon(name='Pikachu', poketype='grass')
-    rimuru = Digimon(name='Rimuru')
+    agumon = Digimon(name='Agumon')
     train(pika)
     print('Pokemon {}: {} exp'.format(pika, pika.exp))
     train(rimuru)
-    print('Digimon {}: {} exp'.format(rimuru, rimuru.exp))
+    print('Digimon {}: {} exp'.format(agumon, agumon.exp))
